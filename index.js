@@ -74,7 +74,7 @@ const saveButton = document.getElementById("save");
 saveButton.addEventListener("click", async () => {
     console.log("click");
     try {
-        const response = await fetch(`${process.env.ENDPOINT}/saveData`, {
+        const response = await fetch("http://localhost:3000/saveData", {
             // Adjust the URL to match your server endpoint
             method: "POST",
             headers: {
