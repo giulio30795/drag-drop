@@ -39,6 +39,7 @@ const server = http.createServer((req, res) => {
             let data;
             try {
                 data = JSON.parse(body);
+                console.log("OOOOOOOOO", datanode);
             } catch (e) {
                 res.writeHead(400, { "Content-Type": "text/plain" });
                 res.end("Invalid JSON");
@@ -46,7 +47,7 @@ const server = http.createServer((req, res) => {
             }
 
             // Write the data to the file
-            fs.writeFile(filePath, JSON.stringify(data, null, 2), (err) => {
+            fs.writeFile(data.filename + ".json", JSON.stringify(data.content, null, 2), (err) => {
                 if (err) {
                     res.writeHead(500, { "Content-Type": "text/plain" });
                     res.end("Error saving data");
@@ -65,5 +66,5 @@ const server = http.createServer((req, res) => {
 
 // Start the server
 server.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`Server running at http://xx:${port}`);
 });

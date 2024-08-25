@@ -101,3 +101,23 @@ categories.forEach((category) => {
     // Append the button to the container
     buttonContainer.appendChild(button);
 });
+
+const saveButton = document.getElementById("save");
+saveButton.addEventListener("click", async (event) => {
+    console.log("click", dataToSave);
+    event.preventDefault();
+    try {
+        const response = await axios.post("http://localhost:3000/saveData", {
+            filename: currentCategory.innerText.split(": ")[1],
+            content: dataToSave,
+        });
+
+        if (response.status === 200) {
+            console.log("Data successfully saved.");
+        } else {
+            console.error("Error saving data:", response.statusText);
+        }
+    } catch (error) {
+        console.log("error", error);
+    }
+});
