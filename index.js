@@ -1,11 +1,11 @@
 // Global Variables to hold grid API and grid options
 let gridApi;
 let gridColumnApi;
+let gridOptions;
 
 let dataToSave = [];
-
-async function getData() {
-    const url = "./arbitri.json";
+async function getData(category = "arbitri") {
+    const url = `./${category}.json`;
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -23,12 +23,11 @@ async function getData() {
 document.addEventListener("DOMContentLoaded", async function () {
     const gridDiv = document.querySelector("#myGrid");
 
-    // Fetch data and set up grid options
-    const rowDatafromJson = await getData(); // Await the data fetching
+    // Fetch initial data and set up grid options
+    let rowDatafromJson = await getData(); // Await the data fetching
     console.log("rowDatafromJson", rowDatafromJson);
 
-    const gridOptions = {
-        // Initially empty rowData and columnDefs
+    gridOptions = {
         rowData: rowDatafromJson, // Use the fetched data directly
         columnDefs: [
             { field: "CODICE MECCANOGRAFICO", rowDrag: true },
@@ -61,7 +60,7 @@ function onRowDragEnd(event) {
     // Refresh cells to show the updated POSIZIONE values
     gridApi.refreshCells({ columns: ["POSIZIONE"] });
 
-    // Log all data in the tabl
+    // Log all data in the table
     dataToSave = [];
     gridApi.forEachNode((node) => {
         dataToSave.push(node.data);
@@ -69,10 +68,61 @@ function onRowDragEnd(event) {
     console.log("Updated table data:", dataToSave);
 }
 
-const saveButton = document.getElementById("save");
+// Event listener for category button click
 
-saveButton.addEventListener("click", async () => {
-    console.log("click");
+// const categories = ["sec", "ter", "jur", "jup", "alr", "alp", "gir", "gip"];
+// const buttonContainer = document.querySelector(".buttonContainer");
+
+// categories.forEach((category) => {
+//     // Create a button element
+//     const button = document.createElement("button");
+
+//     // Set the button's text
+//     button.textContent = category;
+//     button.id = category;
+
+//     button.addEventListener("click", async (x) => {
+//         currentCategory.innerText = x.target.id;
+//         const newRowData = await getData(x.target.id); // Fetch new data based on button ID
+//         if (gridApi) {
+//             // Remove all existing rows
+//             const currentData = [];
+//             gridApi.forEachNode((node) => currentData.push(node.data));
+//             gridApi.applyTransaction({ remove: currentData });
+
+//             // Add the new data
+//             gridApi.applyTransaction({ add: newRowData });
+//         }
+//     });
+
+//     // Append the button to the container
+//     buttonContainer.appendChild(button);
+// });
+
+const saveButton = document.getElementById("save");
+saveButton.addEventListener("click", async (event) => {
+    console.log("click", dataToSave);
+    event.preventDefault();
+    // try {
+    //     const response = await axios.post("http://localhost:3000/saveData", {
+    //         // Adjust the URL to match your server endpoint
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         data: {
+    //             filename: currentCategory.innerText,
+    //             content: dataToSave,
+    //         },
+    //     });
+
+    //     if (response.status === 200) {
+    //         console.log("Data successfully saved.");
+    //     } else {
+    //         console.error("Error saving data:", response.statusText);
+    //     }
+    // } catch (error) {
+    //     console.log("error", error);
+    // }
     try {
         const response = await fetch("http://localhost:3000/saveData", {
             // Adjust the URL to match your server endpoint
