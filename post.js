@@ -22,7 +22,7 @@ const server = http.createServer((req, res) => {
     }
 
     // Handle only POST requests to /saveData
-    if (req.method === "POST" && req.url === "/saveData") {
+    if (req.method === "POST") {
         const decoder = new StringDecoder("utf-8");
         let body = "";
 
