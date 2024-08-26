@@ -4,6 +4,8 @@ let gridColumnApi;
 let gridOptions;
 
 let dataToSave = [];
+
+// Function to fetch data
 async function getData(category = "sec") {
     const url = `./${category}.json`;
     try {
@@ -30,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     gridOptions = {
         rowData: rowDatafromJson, // Use the fetched data directly
         columnDefs: [
-            { field: "CODICE MECCANOGRAFICO", rowDrag: true },
+            { field: "CODICE MECCANOGRAFICO" },
             { field: "ARBITRO" },
             { field: "POSIZIONE" },
         ],
@@ -43,12 +45,30 @@ document.addEventListener("DOMContentLoaded", async function () {
         onGridReady: function (params) {
             gridApi = params.api; // Assign the grid API to the global variable
             gridColumnApi = params.columnApi; // Assign the column API to the global variable
+
+            // Adjust grid height when the grid is ready
+            adjustGridHeight();
         },
         onRowDragEnd: onRowDragEnd, // Event handler for row drag end
+        onFirstDataRendered: adjustGridHeight, // Adjust grid height on first data render
     };
 
     new agGrid.Grid(gridDiv, gridOptions); // Initialize the grid with options
 });
+
+// Function to adjust the grid height based on the content
+function adjustGridHeight() {
+    const rowHeight = gridApi.getSizesForCurrentTheme().rowHeight; // Get the row height
+    const numberOfRows = gridApi.getDisplayedRowCount(); // Get the number of rows
+    const headerHeight = 55; // Adjust if you have a custom header height
+    const totalHeight = numberOfRows * rowHeight + headerHeight; // Calculate the total height needed
+
+    // Set the grid height dynamically
+    document.querySelector("#myGrid").style.height = `${totalHeight}px`;
+
+    // Notify the grid to resize to the new height
+    gridApi.doLayout();
+}
 
 // Function to handle the row drag end event
 function onRowDragEnd(event) {
@@ -66,17 +86,19 @@ function onRowDragEnd(event) {
         dataToSave.push(node.data);
     });
     console.log("Updated table data:", dataToSave);
+
+    // Adjust grid height after row drag
+    adjustGridHeight();
 }
 
 // Event listener for category button click
-
 const categories = ["sec", "ter", "jur", "jup", "alr", "alp", "gir", "gip"];
 const buttonContainer = document.querySelector(".buttonContainer");
 
 categories.forEach((category) => {
     // Create a button element
     const button = document.createElement("button");
-
+    button.classList.add("categoryButton");
     // Set the button's text
     button.textContent = category;
     button.id = category;
@@ -84,7 +106,6 @@ categories.forEach((category) => {
     button.addEventListener("click", async (x) => {
         let title = document.getElementById("currentCategory");
         title.innerText = "Elenco Arbitri per la categoria: " + x.target.id;
-        const button = document.createElement("button");
 
         const newRowData = await getData(x.target.id); // Fetch new data based on button ID
         if (gridApi) {
@@ -95,6 +116,9 @@ categories.forEach((category) => {
 
             // Add the new data
             gridApi.applyTransaction({ add: newRowData });
+
+            // Adjust grid height after new data is loaded
+            adjustGridHeight();
         }
     });
 

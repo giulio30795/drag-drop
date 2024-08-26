@@ -39,7 +39,6 @@ const server = http.createServer((req, res) => {
             let data;
             try {
                 data = JSON.parse(body);
-                console.log("OOOOOOOOO", data);
             } catch (e) {
                 res.writeHead(400, { "Content-Type": "text/plain" });
                 res.end("Invalid JSON");
