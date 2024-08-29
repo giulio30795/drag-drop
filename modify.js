@@ -35,11 +35,15 @@ document.addEventListener("DOMContentLoaded", async function () {
             { field: "CODICE MECCANOGRAFICO", rowDrag: true },
             { field: "ARBITRO" },
             { field: "POSIZIONE" },
+            { field: "NOTA", wrapText: true, autoHeight: true },
         ],
         defaultColDef: {
             flex: 1,
             sortable: true,
             filter: true,
+        },
+	autoSizeStrategy: {
+                type: 'fitCellContents',
         },
         rowDragManaged: true,
         onGridReady: function (params) {
