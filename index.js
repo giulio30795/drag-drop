@@ -35,12 +35,16 @@ document.addEventListener("DOMContentLoaded", async function () {
             { field: "CODICE MECCANOGRAFICO" },
             { field: "ARBITRO" },
             { field: "POSIZIONE" },
+            { field: "NOTA", wrapText: true, autoHeight: true },
         ],
         defaultColDef: {
             flex: 1,
             sortable: true,
             filter: true,
         },
+	autoSizeStrategy: {
+		type: 'fitCellContents',
+	},
         rowDragManaged: true,
         onGridReady: function (params) {
             gridApi = params.api; // Assign the grid API to the global variable
