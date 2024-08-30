@@ -5,22 +5,6 @@ let gridOptions;
 const saveButton = document.getElementById("save");
 var dataToSave = [];
 // Function to fetch data
-async function getData(category = "sec") {
-    const url = `./${category}.json`;
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-        }
-        const json = await response.json();
-        initialData = json;
-        console.log("dataToSave", dataToSave);
-        return json; // Return the data to be used later
-    } catch (error) {
-        console.error(error.message);
-        return []; // Return an empty array or handle the error as needed
-    }
-}
 
 // Initialize the Grid when the DOM is ready
 document.addEventListener("DOMContentLoaded", async function () {
@@ -52,6 +36,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             },
             {
                 field: "NOTA",
+                editable: true,
                 wrapText: true, // Enables text wrapping in the cell
                 autoHeight: true, // Automatically adjusts row height based on content
                 flex: 1, // Makes the NOTA column take the remaining space
@@ -76,7 +61,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         },
 
         onRowDragEnd: onRowDragEnd, // Event handler for row drag end
-        onFirstDataRendered: adjustGridHeight, // Adjust grid height on first data render
+        onFirstDataRendered: adjustGridHeight,
+        onCellEditingStopped: onEditingStop,
     };
 
     new agGrid.Grid(gridDiv, gridOptions); // Initialize the grid with options
@@ -108,6 +94,15 @@ function onRowDragEnd(event) {
 
     // Adjust grid height after row drag
     adjustGridHeight();
+    saveButton.classList.remove("hidden");
+}
+
+function onEditingStop() {
+    dataToSave = [];
+    gridApi.forEachNode((node) => {
+        dataToSave.push(node.data);
+        console.log("dataToSave", dataToSave);
+    });
     saveButton.classList.remove("hidden");
 }
 
@@ -161,16 +156,37 @@ saveButton.addEventListener("click", async (event) => {
             showToast("Salvataggio Riuscito");
         } else {
             console.error("Error saving data:", response.statusText);
+            showToast("Qualcosa è andato storto, riprova");
         }
     } catch (error) {
         console.log("error", error);
     }
+    showToast("Salvataggio Riuscito");
 });
 
 function showToast(text) {
-    let toast = document.querySelector("toast");
+    let toast = document.querySelector(".toast");
     toast.innerText = text;
     toast.classList.remove("hidden");
 
-    setTimeout(toast.classList.add("hidden"), 2500);
+    setTimeout(() => {
+        toast.classList.add("hidden");
+    }, 2500);
+}
+
+async function getData(category = "sec") {
+    const url = `./${category}.json`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+        const json = await response.json();
+        initialData = json;
+        console.log("dataToSave", dataToSave);
+        return json; // Return the data to be used later
+    } catch (error) {
+        console.error(error.message);
+        return []; // Return an empty array or handle the error as needed
+    }
 }
