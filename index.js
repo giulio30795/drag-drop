@@ -29,28 +29,48 @@ document.addEventListener("DOMContentLoaded", async function () {
     let rowDatafromJson = await getData(); // Await the data fetching
     console.log("rowDatafromJson", rowDatafromJson);
 
-    gridOptions = {
+    const gridOptions = {
         rowData: rowDatafromJson, // Use the fetched data directly
         columnDefs: [
-            { field: "CODICE MECCANOGRAFICO" },
-            { field: "ARBITRO" },
-            { field: "POSIZIONE" },
-            { field: "NOTA", wrapText: true, autoHeight: true },
+            {
+                field: "CODICE MECCANOGRAFICO",
+                rowDrag: true,
+                wrapText: true,
+                autoHeight: true,
+                minWidth: 250,
+            },
+            {
+                field: "ARBITRO",
+                wrapText: true,
+                autoHeight: true,
+            },
+            {
+                field: "POSIZIONE",
+                wrapText: true,
+                autoHeight: true,
+            },
+            {
+                field: "NOTA",
+                wrapText: true, // Enables text wrapping in the cell
+                autoHeight: true, // Automatically adjusts row height based on content
+                flex: 1, // Makes the NOTA column take the remaining space
+            },
         ],
         defaultColDef: {
-            flex: 1,
             sortable: true,
             filter: true,
+            resizable: true, // Ensure columns are resizable
         },
-	autoSizeStrategy: {
-		type: 'fitCellContents',
-	},
+        domLayout: "autoHeight", // The grid will adjust its height to the number of rows
         rowDragManaged: true,
         onGridReady: function (params) {
             gridApi = params.api; // Assign the grid API to the global variable
             gridColumnApi = params.columnApi; // Assign the column API to the global variable
 
-            // Adjust grid height when the grid is ready
+            // Automatically size specific columns to fit their content
+            gridColumnApi.autoSizeColumns(["CODICE MECCANOGRAFICO", "ARBITRO", "POSIZIONE"]);
+
+            // Adjust grid height after initial render
             adjustGridHeight();
         },
         onRowDragEnd: onRowDragEnd, // Event handler for row drag end

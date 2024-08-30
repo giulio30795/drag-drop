@@ -1,27 +1,32 @@
 [
   {
-    "CODICE MECCANOGRAFICO": "6180212",
-    "ARBITRO": "AGOSTI ANDREA",
-    "POSIZIONE": 1
+    "CODICE MECCANOGRAFICO": "6174982",
+    "ARBITRO": "TACCHINO CHRISTIAN",
+    "POSIZIONE": 1,
+    "NOTA": "Designare SEMPRE, in vista del CRA"
   },
   {
-    "CODICE MECCANOGRAFICO": "6044845",
-    "ARBITRO": "BATTISTA LUCA",
-    "POSIZIONE": 2
+    "CODICE MECCANOGRAFICO": "6162005",
+    "ARBITRO": "DI NAPOLI SIMONE",
+    "POSIZIONE": 2,
+    "NOTA": "Designare sempre. Finchè non ha la patente necessita di mio passaggio, quindi lo incastro io in base alle mie gare"
   },
   {
-    "CODICE MECCANOGRAFICO": "6077054",
-    "ARBITRO": "BEDIN MARCO",
-    "POSIZIONE": 3
+    "CODICE MECCANOGRAFICO": "6158179",
+    "ARBITRO": "DELFRATE FILIPPO",
+    "POSIZIONE": 3,
+    "NOTA": "Designabile liberamente"
   },
   {
-    "CODICE MECCANOGRAFICO": "6004644",
-    "ARBITRO": "BOTTAZZO ORESTE",
-    "POSIZIONE": 4
+    "CODICE MECCANOGRAFICO": "6164104",
+    "ARBITRO": "ODIERNA FEDERICO",
+    "POSIZIONE": 4,
+    "NOTA": "Designabile liberamente"
   },
   {
-    "CODICE MECCANOGRAFICO": "6174425",
-    "ARBITRO": "ABDEL HALIM YOUSSEF ELSAYED",
-    "POSIZIONE": 5
+    "CODICE MECCANOGRAFICO": "6158180",
+    "ARBITRO": "GRIMALDI GIOVANNI SALVATORE",
+    "POSIZIONE": 5,
+    "NOTA": "Fai finta che non esista. In congedo fino a dicembre, probabili dimissioni"
   }
 ]
