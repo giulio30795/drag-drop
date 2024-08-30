@@ -1,116 +1,32 @@
 [
   {
-    "CODICE MECCANOGRAFICO": "6044845",
-    "ARBITRO": "BATTISTA LUCA",
-    "POSIZIONE": "2",
-    "NOTA": "Utilizzabile liberamente. Di preferenza SEC e TER"
+    "CODICE MECCANOGRAFICO": "6174982",
+    "ARBITRO": "TACCHINO CHRISTIAN",
+    "POSIZIONE": 1,
+    "NOTA": "Designare SEMPRE, in vista del CRA"
   },
   {
-    "CODICE MECCANOGRAFICO": "6165533",
-    "ARBITRO": "NECHIFOR GIULIO NICOLAS",
-    "POSIZIONE": "1",
-    "NOTA": "Da designare sempre, in vista del CRA a gennaio. Designabile liberamente ma non mandare sempre lontanissimo"
+    "CODICE MECCANOGRAFICO": "6162005",
+    "ARBITRO": "DI NAPOLI SIMONE",
+    "POSIZIONE": 2,
+    "NOTA": "Designare sempre. Finchè non ha la patente necessita di mio passaggio, quindi lo incastro io in base alle mie gare"
   },
   {
-    "CODICE MECCANOGRAFICO": "6142579",
-    "ARBITRO": "TROTTA FILIPPO",
-    "POSIZIONE": "3",
-    "NOTA": "Utilizzabile liberamente. Di preferenza SEC e TER"
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6113220",
-    "ARBITRO": "CANI AUREL",
-    "POSIZIONE": "4",
+    "CODICE MECCANOGRAFICO": "6158179",
+    "ARBITRO": "DELFRATE FILIPPO",
+    "POSIZIONE": 3,
     "NOTA": "Designabile liberamente"
   },
   {
-    "CODICE MECCANOGRAFICO": "6142571",
-    "ARBITRO": "EBA AKA MARC ARTHUR",
-    "POSIZIONE": "5",
+    "CODICE MECCANOGRAFICO": "6164104",
+    "ARBITRO": "ODIERNA FEDERICO",
+    "POSIZIONE": 4,
     "NOTA": "Designabile liberamente"
   },
   {
-    "CODICE MECCANOGRAFICO": "6155969",
-    "ARBITRO": "RIGOTTI ROBERTO",
-    "POSIZIONE": "6",
-    "NOTA": "Utilizzare liberamente"
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6036337",
-    "ARBITRO": "DEGRA' SIMONE PIETRO",
-    "POSIZIONE": "7",
-    "NOTA": "Utilizzabile liberamente. Di preferenza SEC e TER"
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6122476",
-    "ARBITRO": "INCARBONE GIULIO",
-    "POSIZIONE": "8",
-    "NOTA": "Utilizzare liberamente in base a disponibilità. Preferisce la juniores o giovanili, SEC e TER se proprio c'è bisogno. Chiamare pure in caso di emergenza"
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6113234",
-    "ARBITRO": "SERRI YASSINE",
-    "POSIZIONE": "9",
-    "NOTA": "Utilizzabile liberamente"
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6113233",
-    "ARBITRO": "SERRI MOUHCINE",
-    "POSIZIONE": "10",
-    "NOTA": "Utilizzabile liberamente"
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6113224",
-    "ARBITRO": "CULAJ SAMUEL",
-    "POSIZIONE": "11",
-    "NOTA": "Designabile in base a disponibilità. E' un pò un'incognita, soprattutto al sabato perchè spesso lavora"
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6109183",
-    "ARBITRO": "SORESINA OMAR",
-    "POSIZIONE": "12",
-    "NOTA": "ENORME incognita: se lo designi non va perchè dice che non sa come andare, se non lo designi si lamenta... Auguri!!! Non stare a diventare matto, se c'è qualcosa vicino bene, altrimenti si organizza"
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6145482",
-    "ARBITRO": "DORONZO SIMONE EMANUELE",
-    "POSIZIONE": "13",
-    "NOTA": "Vuole fare OA, utilizzare quando te lo dico io, farà numero minimo di gare. Chiamare pure in caso di emergenza, calcolando che il sabato apre il locale quindi non può tardi e domenica mattina solo se vicino visto che finisce di lavorare notte tardi di sabato"
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6129257",
-    "ARBITRO": "CORDANI LUCA",
-    "POSIZIONE": "14",
-    "NOTA": "Utilizzabile liberamente, ma essendo CRA non inserire designazione in Sinfonia prima del giovedì. Come tutti i CRA, contattare prima di designarlo."
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6119436",
-    "ARBITRO": "LUCIANO LUIGI",
-    "POSIZIONE": "15",
-    "NOTA": "Utilizzabile liberamente, ma essendo CRA non inserire designazione in Sinfonia prima del giovedì. Come tutti i CRA, contattare prima di designarlo."
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6132193",
-    "ARBITRO": "PIGOZZI MARCO",
-    "POSIZIONE": "16",
-    "NOTA": "Farà numero minimo di gare, ma ci pensa lui a inserire indisponibilità o congedo. Utilizzare di preferenza in SEC e TER"
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6162006",
-    "ARBITRO": "DAMIANO FERDINANDO",
-    "POSIZIONE": "17",
-    "NOTA": "Fa carabiniere a Borgomanero. Comunica a me quando è disponibile in base ai turni. Da designare quando te lo comunico io. In caso di emergenza provare a chiamare"
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6138571",
-    "ARBITRO": "D'ADDIEGO OSCAR LUIGI",
-    "POSIZIONE": "18",
-    "NOTA": "Utilizzabile liberamente, ma essendo CRA non inserire designazione in Sinfonia prima del giovedì. Come tutti i CRA, contattare prima di designarlo. Molto difficilmente sarà disponibile"
-  },
-  {
-    "CODICE MECCANOGRAFICO": "6142594",
-    "ARBITRO": "CAKA FJORALB",
-    "POSIZIONE": "19",
-    "NOTA": "Non designare mai a meno che non te lo dica io. Non chiamare in caso di emergenza"
+    "CODICE MECCANOGRAFICO": "6158180",
+    "ARBITRO": "GRIMALDI GIOVANNI SALVATORE",
+    "POSIZIONE": 5,
+    "NOTA": "Fai finta che non esista. In congedo fino a dicembre, probabili dimissioni"
   }
 ]

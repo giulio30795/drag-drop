@@ -1,10 +1,7 @@
-// Global Variables to hold grid API and grid options
 let gridApi;
 let gridColumnApi;
 let gridOptions;
-
-let dataToSave = [];
-
+var dataToSave = [];
 // Function to fetch data
 async function getData(category = "sec") {
     const url = `./${category}.json`;
@@ -14,6 +11,7 @@ async function getData(category = "sec") {
             throw new Error(`Response status: ${response.status}`);
         }
         const json = await response.json();
+
         return json; // Return the data to be used later
     } catch (error) {
         console.error(error.message);
@@ -27,8 +25,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Fetch initial data and set up grid options
     let rowDatafromJson = await getData(); // Await the data fetching
-    console.log("rowDatafromJson", rowDatafromJson);
 
+    // Define grid options
     const gridOptions = {
         rowData: rowDatafromJson, // Use the fetched data directly
         columnDefs: [
@@ -73,6 +71,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             // Adjust grid height after initial render
             adjustGridHeight();
         },
+
         onRowDragEnd: onRowDragEnd, // Event handler for row drag end
         onFirstDataRendered: adjustGridHeight, // Adjust grid height on first data render
     };
@@ -82,16 +81,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 // Function to adjust the grid height based on the content
 function adjustGridHeight() {
-    const rowHeight = gridApi.getSizesForCurrentTheme().rowHeight; // Get the row height
-    const numberOfRows = gridApi.getDisplayedRowCount(); // Get the number of rows
-    const headerHeight = 55; // Adjust if you have a custom header height
-    const totalHeight = numberOfRows * rowHeight + headerHeight; // Calculate the total height needed
-
     // Set the grid height dynamically
-    document.querySelector("#myGrid").style.height = `${totalHeight}px`;
-
-    // Notify the grid to resize to the new height
-    gridApi.doLayout();
+    const gridDiv = document.querySelector("#myGrid");
+    gridDiv.style.height = "";
+    gridApi.sizeColumnsToFit();
 }
 
 // Function to handle the row drag end event
@@ -109,7 +102,6 @@ function onRowDragEnd(event) {
     gridApi.forEachNode((node) => {
         dataToSave.push(node.data);
     });
-    console.log("Updated table data:", dataToSave);
 
     // Adjust grid height after row drag
     adjustGridHeight();
@@ -123,6 +115,7 @@ categories.forEach((category) => {
     // Create a button element
     const button = document.createElement("button");
     button.classList.add("categoryButton");
+
     // Set the button's text
     button.textContent = category;
     button.id = category;

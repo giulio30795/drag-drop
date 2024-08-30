@@ -149,7 +149,6 @@ categories.forEach((category) => {
 });
 
 saveButton.addEventListener("click", async (event) => {
-    console.log("xx", dataToSave);
     event.preventDefault();
     try {
         const response = await axios.post("http://localhost:3000/saveData", {
